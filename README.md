@@ -135,7 +135,7 @@ http://127.0.0.1:3005/index.html
 ```json
 {
   "service_name": "Auth-Service",
-  "user_id": 42,
+  "user_id": 48,
   "log_level": "ERROR",
   "message": "Failed to generate JWT token due to missing secret key."}
 ```
