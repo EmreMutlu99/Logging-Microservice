@@ -277,3 +277,17 @@ input:checked + .slider:before {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Fix for log-row cell sizes and wrapping behavior */
+.log-row, .logs-header {
+  grid-template-columns: 60px 80px 1fr 200px 100px; /* ID, User ID, Message, Time, Level */
+  align-items: start;
+}
+
+.log-row div:nth-child(3), .logs-header div:nth-child(3) {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+

@@ -113,6 +113,11 @@ function filterAndSortLogs() {
     logs = logs.filter(log => String(log.user_id) === userIdValue);
   }
 
+  const messageQuery = messageFilter.value.trim().toLowerCase();
+  if (messageQuery !== "") {
+    logs = logs.filter(log => log.message.toLowerCase().includes(messageQuery));
+  }
+
   const order = sortOrder.value;
   logs.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
   if (order === "desc") logs.reverse();
@@ -243,6 +248,8 @@ newServiceNameInput.addEventListener("keydown", (e) => {
 logFilter.addEventListener("change", filterAndSortLogs);
 sortOrder.addEventListener("change", filterAndSortLogs);
 userIdFilter.addEventListener("input", filterAndSortLogs);
+const messageFilter = document.getElementById("messageFilter");
+messageFilter.addEventListener("input", filterAndSortLogs);
 
 // Checking auto refresh
 autoRefreshToggle.addEventListener("change", () => {
